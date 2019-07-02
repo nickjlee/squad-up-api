@@ -5,5 +5,6 @@ CREATE TABLE users(
     xp NUMERIC DEFAULT 0,
     name TEXT NOT NULL,
     xp_threshold NUMERIC DEFAULT 500,
-    avatar TEXT NOT NULL
+    avatar URL NOT NULL,
+    level INTEGER DEFAULT 1
 );
