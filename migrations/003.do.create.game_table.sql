@@ -10,7 +10,7 @@ CREATE TABLE games(
     no_squads INTEGER DEFAULT 0,
     modifieddate TIMESTAMP DEFAULT now() NOT NULL,
     game_title TEXT NOT NULL,
-    image URL NOT NULL
+    image VARCHAR(100) NOT NULL
 );
 ALTER TABLE games
     ADD COLUMN
