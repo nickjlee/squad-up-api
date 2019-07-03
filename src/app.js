@@ -7,7 +7,7 @@ const cors = require('cors');
 const corsOptions = require('./cors-whitelist');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
-const liveChatRoute = require('./components/live-chat/liveChat');
+
 
 const app = express();
 app.use(express.json());
@@ -24,7 +24,6 @@ app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
-app.use('/livechat',liveChatRoute);
 
 app.use(function errorHandler(error, req, res, next) {
   let response;
