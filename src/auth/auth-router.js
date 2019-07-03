@@ -6,7 +6,7 @@ const authRouter = express.Router()
 const jsonParser = express.json()
 
 authRouter
-  .route('./token')
+  .route('/token')
   .post(jsonParser, async (req, res, next) => {
     const {username, password} = req.body
     const loginUser = {username, password} 
