@@ -4,6 +4,9 @@ CREATE TABLE level(
     xp_threshold NUMERIC NOT NULL
 );
 
+INSERT INTO level (id, level, xp_threshold) VALUES
+( '1', '1', '500');
+
 ALTER TABLE users
     ADD COLUMN
-        level_id INTEGER REFERENCES level(id) ON DELETE CASCADE NOT NULL;
+        level_id INTEGER REFERENCES level(id) ON DELETE CASCADE DEFAULT 1;

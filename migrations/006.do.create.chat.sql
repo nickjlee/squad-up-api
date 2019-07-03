@@ -5,4 +5,7 @@ CREATE TABLE chat(
     message_body VARCHAR(500) NOT NULL,
     time_stamp TIMESTAMP DEFAULT now() NOT NULL,
     pinned VARCHAR(500)
-)
+);
+
+ALTER TABLE squads
+    ADD COLUMN chat_id INTEGER REFERENCES chat(id);
