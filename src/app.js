@@ -18,16 +18,20 @@ const morganOption = (NODE_ENV === 'production')
   : 'dev';
 
 app.use(morgan(morganOption));
-
 app.use(cors({origin: corsOptions}));
 app.use(helmet());
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
-
 app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
+
+app.use('/', (req, res) => {
+  res.send(`
+    <h1>SquadUp Server</h1>
+
+    <h2>This is the backend server for <a href='https://squadup.now.sh'>Squad Up</a></h2>
+    <h4>"Squad Up lets you find and connect with people and play the games you love"</h4>
+  `);
+});
 
 app.use(errorHandler)
 
