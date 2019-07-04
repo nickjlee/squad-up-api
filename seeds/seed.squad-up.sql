@@ -1,15 +1,17 @@
 BEGIN;
 
 TRUNCATE
-    users RESTART IDENTITY CASCADE;
-    games RESTART IDENTITY CASCADE;
-    user_squads;
-    squads RESTART IDENTITY CASCADE;
+    users,
+    games,
+    user_squads,
+    squads
+    RESTART IDENTITY CASCADE;
 
 INSERT INTO users (id, username, password, name, avatar) VALUES (
     '1',
     'user1',
-    'pass1',
+    --password: pass1
+    '$2a$12$zjujb7acz65IE0DOM1JJ6.iedBs1Opou6.9ADYHW.DwbfxQsw.niG',
     'test user1',
     'https://image.flaticon.com/icons/svg/78/78373.svg'
 );
