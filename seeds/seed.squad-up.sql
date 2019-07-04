@@ -1,3 +1,11 @@
+BEGIN;
+
+TRUNCATE
+    users RESTART IDENTITY CASCADE;
+    games RESTART IDENTITY CASCADE;
+    user_squads;
+    squads RESTART IDENTITY CASCADE;
+
 INSERT INTO users (id, username, password, name, avatar) VALUES (
     '1',
     'user1',
@@ -23,3 +31,4 @@ INSERT INTO user_squads (user_id, squad_id) VALUES (
     '1'
 );
 
+COMMIT;
