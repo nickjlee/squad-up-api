@@ -1,10 +1,8 @@
 const express = require('express')
 const {requireAuth} = require('../middleware/jwt-auth')
 const GamesService = require('./games-service')
-const path = require('path')
 
 const gamesRouter = express.Router()
-const jsonParser = express.json()
 
 gamesRouter
   .route('/')
@@ -39,7 +37,7 @@ gamesRouter
       )
 
       return res.json(gameSquads)
-      
+
     } catch (error) {
       next(error)
     }
