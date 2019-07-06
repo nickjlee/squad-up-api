@@ -4,5 +4,5 @@ CREATE TABLE users(
     password TEXT NOT NULL,
     xp NUMERIC DEFAULT 0,
     name TEXT NOT NULL,
-    avatar VARCHAR(100) NOT NULL
+    avatar TEXT DEFAULT 'https://image.flaticon.com/icons/svg/78/78373.svg'
 );
