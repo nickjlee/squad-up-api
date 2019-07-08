@@ -10,8 +10,10 @@ const errorHandler = require('./middleware/error-handler')
 const authRouter = require('./auth/auth-router')
 const userRouter = require('./user/user-router')
 const gamesRouter = require('./games/games-router')
+const chatRouter = require('./livechat/livechat-router')
 
 const app = express();
+
 app.use(express.json());
 
 const morganOption = (NODE_ENV === 'production')
@@ -25,6 +27,7 @@ app.use(helmet());
 app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
 app.use('/api/games', gamesRouter)
+app.use('/api/chat', chatRouter)
 
 app.use('/', (req, res) => {
   res.send(`
@@ -34,6 +37,8 @@ app.use('/', (req, res) => {
     <h4>"Squad Up lets you find and connect with people and play the games you love"</h4>
   `);
 });
+
+
 
 app.use(errorHandler)
 

@@ -33,5 +33,12 @@ INSERT INTO user_squads (user_id, squad_id) VALUES (
     '1',
     '1'
 );
+INSERT INTO games (id, game_title, image) VALUES 
+(999, 'All', 'None');
+INSERT INTO squads (id, squad_name, squad_location, leader, capacity, game_id) VALUES
+(999, 'General Chat', 'USA', 1, 9999, 999);
+INSERT INTO chat (user_id, message_body, squad_id) VALUES
+(1, 'Welcome to Squad Up', 999);
+
 
 COMMIT;
