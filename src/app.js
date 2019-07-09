@@ -19,7 +19,7 @@ const morganOption = (NODE_ENV === 'production')
   : 'dev';
 
 app.use(morgan(morganOption));
-app.use(cors({origin: corsOptions}));
+app.use(cors({origin: true, credentials: true}));
 app.use(helmet());
 
 app.use('/api/auth', authRouter)
