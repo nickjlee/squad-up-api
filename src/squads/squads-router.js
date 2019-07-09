@@ -10,7 +10,7 @@ squadsRouter
   .use(requireAuth)
 
 squadsRouter
-  .get('/', async (req, req, next) => {
+  .get('/', async (req, res, next) => {
     try {
       const userSquads = await SquadsService.getUserSquads(
         req.app.get('db'),
