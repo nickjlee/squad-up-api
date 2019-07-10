@@ -4,8 +4,17 @@ CREATE TABLE level(
     xp_threshold NUMERIC NOT NULL
 );
 
-INSERT INTO level (id, level, xp_threshold) VALUES
-( '1', '1', '500');
+INSERT INTO level (level, xp_threshold) VALUES
+( '1', 500  ),
+( '2', 1000 ),
+( '3', 1500 ),
+( '4', 2000 ),
+( '5', 2500 ),
+( '6', 3000 ),
+( '7', 3500 ),
+( '8', 4000 ),
+( '9', 4500 ),
+('10', 5000 );
 
 ALTER TABLE users
     ADD COLUMN
