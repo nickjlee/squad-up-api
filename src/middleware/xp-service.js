@@ -8,7 +8,6 @@ async function grantXp(db, username, xp) {
     if(newXp >= userData.xp_threshold && newLevel < Number(levelCap.level)) newLevel++
 
     const updatedInfo =  await _updateUserXp(db, username, newXp, newLevel)
-    console.log(updatedInfo)
     
     // returns an object with {user.id, user.username, user.xp, user.level_id}
     return updatedInfo[0]
