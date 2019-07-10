@@ -5,12 +5,12 @@ const userInfoRouter = express.Router()
 
 userInfoRouter
 .all(requireAuth)
-.get("/:id", async (req, res, next) => {
+.get("/:username", async (req, res, next) => {
     try{
-        const { id } = req.params
-        const userInfo = await userInfoService.getInfo(
+        const { username } = req.params
+        const userInfo = await userInfoService.getInfoByName(
             req.app.get('db'),
-            id
+            username
         )
 
         return res.json(userInfo[0])

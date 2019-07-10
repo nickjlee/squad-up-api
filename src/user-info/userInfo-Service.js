@@ -15,6 +15,23 @@ const userInfoService = {
                 'u.level_id',
                 'l.id'
             )
+    },
+    getInfoByName(db, username){
+        return db('users AS u')
+            .select(
+                'u.username',
+                'u.name',
+                'u.avatar',
+                'u.xp',
+                'l.xp_threshold',
+                'u.level_id'
+            )
+            .where("u.username","=",username)
+            .leftJoin(
+                'level AS l',
+                'u.level_id',
+                'l.id'
+            )
     }
 }
 
