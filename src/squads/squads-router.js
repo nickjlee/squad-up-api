@@ -2,7 +2,7 @@ const express = require('express')
 const {requireAuth} = require('../middleware/jwt-auth')
 const path = require('path')
 const SquadsService = require('./squads-service')
-const updateXp = require('../middleware/xp-service')
+const {grantXp} = require('../middleware/xp-service')
 
 const squadsRouter = express.Router()
 const jsonParser = express.json()
@@ -42,10 +42,10 @@ squadsRouter
         squadId
       )
 
-      await updateXp(
+      grantXp(
         req.app.get('db'),
-        req.user.id,
-        100
+        req.user.username,
+        200
       )
 
       return res.status(201).send(`User ${req.user.id} added to squad ${squadId}`)
