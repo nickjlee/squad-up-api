@@ -17,7 +17,7 @@ const GamesService = {
         'gm.id',
         'sqd.game_id'
       )
-      .groupBy('gm.id', 'sqd.id')
+      .groupBy('gm.id')
   },
 
   getGameById(db, id) {
@@ -41,7 +41,7 @@ const GamesService = {
         'sqd.leader',
         'usr.id'
       )
-      .groupBy('sqd.id', 'usr.id')
+      .groupBy('sqd.id')
   }
 }
 

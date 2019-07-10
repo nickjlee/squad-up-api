@@ -37,7 +37,7 @@ gamesRouter
       )
 
       return res.json(gameSquads)
-      
+
     } catch (error) {
       next(error)
     }

@@ -13,6 +13,13 @@
     "migrate-production": "postgrator --config postgrator-production-config.js"
   },
   "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    },
     "extends": [
       "eslint:recommended",
       "plugin:node/recommended"
