@@ -64,7 +64,10 @@ const SquadsService = {
   },
 
   joinSquad(db, user_id, squad_id) {
-
+    return db
+      .insert({user_id, squad_id})
+      .into('user_squads')
+      .returning('*')
   },
 
   updateXP(db, amount) {
