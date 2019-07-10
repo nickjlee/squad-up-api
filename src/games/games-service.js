@@ -41,7 +41,7 @@ const GamesService = {
         'sqd.leader',
         'usr.id'
       )
-      .groupBy('sqd.id')
+      .groupBy('sqd.id', 'usr.id')
   }
 }
 
