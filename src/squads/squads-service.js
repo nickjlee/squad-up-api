@@ -20,14 +20,13 @@ const SquadsService = {
     return db
       .from('user_squads AS us')
       .select(
-        'us.user_id AS userId',
-        'us.squad_id AS squadId',
+        'us.user_id',
+        'us.squad_id',
         'usr.username',
         'usr.name',
-        'usr.avatar',
+        'usr.avatar as userAvatar',
         'sqd.squad_name',
         'sqd.squad_location',
-        'sqd.avatar',
         'sqd.leader',
         'sqd.game_id'
       )
@@ -41,11 +40,7 @@ const SquadsService = {
         'us.squad_id',
         'sqd.id'
       )
-      .where({
-        userId: user_id,
-        squadId: sqd.id
-      })
-      .groupBy('us.user_id')
+      .where('us.user_id', user_id)
   },
 
   // create chat functionality will be done at chat endpoint

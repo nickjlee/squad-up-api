@@ -36,11 +36,11 @@ const GamesService = {
         ...userFields
       )
       .where('sqd.game_id', game_id)
-      // .leftJoin(
-      //   'users AS usr',
-      //   'sqd.leader',
-      //   'usr.id'
-      // )
+      .leftJoin(
+        'users AS usr',
+        'sqd.leader',
+        'usr.id'
+      )
       .groupBy('sqd.id')
   }
 }
