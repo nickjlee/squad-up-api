@@ -1,23 +1,15 @@
 const express = require('express')
-const { requireAuth } = ('../middlware/jwt-auth')
-
 const ChatService = require('./chat-service')
-
-
-
-
 
 const chatRouter = express.Router()
 const jsonParser = express.json()
-
-// chatRouter
-//   .use(requireAuth)
 
 chatRouter
   .get('/:squad_id', async (req, res, next) => {
     try {
       const db = req.app.get('db')
-      const squadChat = await ChatService.getChatById(
+
+      const squadChat = await ChatService.getAllChat(
         db,
         req.params.squad_id,
       )
@@ -27,17 +19,10 @@ chatRouter
           message: `No chat messages for this squad yet`
         })
       }
-      
-      let chatInfo = {
-        userName: 'userName',
-        message: squadChat.message_body,
-        time: squadChat.time_stamp,
-      }
-  
-
+    
       return res
         .status(200)
-        .json(chatInfo);
+        .json(squadChat);
 
     } catch (error) {
       next(error)
@@ -49,22 +34,22 @@ chatRouter
     const { user_id , user_name, message } = req.body;
     try{
       let db = req.app.get('db')
-      const squadChat = await ChatService.getChatById(
+      const squadId = req.params.squad_id
+      const squadChat = await ChatService.getAllChat(
         db,
-        req.params.squad_id,
+        squadId,
       )
-
+      
       const userId = user_id
       const newMessage = message
       const userName = user_name
       const timeStamp = squadChat.time_stamp
       
-      
       await ChatService.updateChat(
         db,
-        req.params.squad_id,
-        userId,
+        squadId,
         userName,
+        userId,
         newMessage
       )
 
@@ -73,7 +58,7 @@ chatRouter
         name: userName,
         time: timeStamp
       }
-      
+         
       res
         .status(200)
         .json(newChat)

@@ -4,8 +4,7 @@ CREATE TABLE chat(
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
     message_body VARCHAR(500) NOT NULL,
     time_stamp TIMESTAMP DEFAULT now() NOT NULL,
-    pinned VARCHAR(500)
+    pinned VARCHAR(500),
+    squad_id INTEGER REFERENCES squads(id) ON DELETE CASCADE NOT NULL
 );
 
-ALTER TABLE squads
-    ADD COLUMN chat_id INTEGER REFERENCES chat(id);

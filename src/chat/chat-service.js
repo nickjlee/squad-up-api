@@ -1,5 +1,5 @@
 const ChatService = {
-  getChatById(db, squad_id) {
+  getAllChat(db, squad_id) {
     return db
       .from('chat')
       .select(
@@ -10,20 +10,15 @@ const ChatService = {
         'chat.time_stamp',
         'chat.pinned',
       )
-      .leftJoin(
-        'squads AS sqd',
-        'chat.id',
-        'sqd.chat_id'
-      )
-      .groupBy('chat.id')
-      .where('sqd.id', squad_id)
+      .where('chat.squad_id', squad_id)
   },
 
-  updateChat(db, name, user_id, message_body){
+  updateChat(db, squad_id,  name, user_id, message_body) {
     return db
-      .insert({ name, user_id, message_body})
+      .insert({ squad_id, name, user_id, message_body })
       .into('chat')
       .returning('*')
+      .then(([res]) => res)
   }
 }
 
