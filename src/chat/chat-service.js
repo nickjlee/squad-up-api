@@ -1,9 +1,11 @@
 const ChatService = {
-  getChatById(db, chat_id) {
+  getChatById(db, squad_id) {
     return db
       .from('chat')
       .select(
         'chat.id',
+        'chat.name',
+        'chat.user_id',
         'chat.message_body',
         'chat.time_stamp',
         'chat.pinned',
@@ -14,9 +16,17 @@ const ChatService = {
         'sqd.chat_id'
       )
       .groupBy('chat.id')
-      .where('chat.id', chat_id)
-      .first()
+      .where('sqd.id', squad_id)
+  },
+
+  updateChat(db, name, user_id, message_body){
+    return db
+      .insert({ name, user_id, message_body})
+      .into('chat')
+      .returning('*')
   }
 }
+
+
 
 module.exports = ChatService
