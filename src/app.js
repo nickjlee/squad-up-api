@@ -29,13 +29,11 @@ app.use('/api/user', userRouter)
 app.use('/api/games', gamesRouter)
 app.use('/api/chat', chatRouter)
 
-app.use('/', (req, res) => {
-  res.send(`
-    <h1>SquadUp Server</h1>
 
-    <h2>This is the backend server for <a href='https://squadup.now.sh'>Squad Up</a></h2>
-    <h4>"Squad Up lets you find and connect with people and play the games you love"</h4>
-  `);
+
+app.use('/', (req, res, next) => {
+  req.io = io;
+  next()
 });
 
 
