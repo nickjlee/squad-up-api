@@ -48,19 +48,38 @@ const SquadsService = {
 
   // },
 
-  addSquad(db, newSquad) {
+  addSquad(db, squad) {
     return db 
-      .insert(newSquad)
+      .insert(squad)
       .into('squads')
       .returning('*')
       .then(([squad]) => squad)
-      .then(squad =>
+      .then(squad => 
         SquadsService.getSquadById(db, squad.id) 
       )
   },
 
-  insertTags(db, squad_id, newTags) {
+  hasSquadWithSquadName(db, squadName) {
+    return db
+      .from('squads')
+      .where({squad_name: squadName})
+      .first()
+      .then(squad => !!squad)
+  },
 
+  insertTags(db, tag) {
+    return db
+      .insert(tag)
+      .into('tags')
+      .returning('*')
+      .then(([newTag]) => newTag)
+  },
+
+  addTagsToSquad(db, squad_id, tags_id) {
+    return db
+      .insert({squad_id, tags_id})
+      .into('squads_tags')
+      .returning('*')
   },
 
   joinSquad(db, user_id, squad_id) {
@@ -70,16 +89,32 @@ const SquadsService = {
       .returning('*')
   },
 
-  updateXP(db, amount) {
-
+  hasUserWithUserId(db, userId, squadId) {
+    return db
+      .from('user_squads')
+      .where({
+        user_id: userId,
+        squad_id: squadId
+      })
+      .first()
+      .then(userSquad => !!userSquad)
   },
 
-  serializeSquad(newSquad) {
-
+  serializeSquad(squad) {
+    return {
+      id: squad.id,
+      squad_name: xss(squad.squad_name),
+      squad_location: xss(squad.squad_location),
+      leader: squad.leader,
+      game_id:squad.game_id,
+    }
   },
 
-  serializeTags(tags) {
-
+  serializeTags(tag) {
+    return {
+      id: tag.id,
+      tag: xss(tag.tag)
+    }
   },
 
 }
