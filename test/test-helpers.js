@@ -42,6 +42,70 @@ function makeUsersArray() {
     },
   ];
 }
+function makeGameArray() {
+  return [
+    {
+      game_title:"testgame1",
+      game_type:"test1",
+      image:"testimage1",
+      id:1,
+      no_squads:2
+    },
+    {
+      game_title:"testgame2",
+      game_type:"test1",
+      image:"testimage1",
+      id:2,
+      no_squads:0
+    },
+    {
+      game_title:"testgame3",
+      game_type:"test2",
+      image:"testimage1",
+      id:3,
+      no_squads:1
+    },
+    {
+      game_title:"testgame4",
+      game_type:"test3",
+      image:"testimage1",
+      id:4,
+      no_squads:1
+    },
+  ]
+}
+function makeSquadList(){
+  return [
+    {
+      squad_name:"testSquad1",
+      squad_location:"testLocation1",
+      game_id:1,
+      leader:1,
+      capacity:4
+    },
+    {
+      squad_name:"testSquad2",
+      squad_location:"testLocation2",
+      game_id:1,
+      leader:2,
+      capacity:4
+    },
+    {
+      squad_name:"testSquad3",
+      squad_location:"testLocation3",
+      game_id:3,
+      leader:3,
+      capacity:4
+    },
+    {
+      squad_name:"testSquad4",
+      squad_location:"testLocation4",
+      game_id:4,
+      leader:2,
+      capacity:4
+    }
+  ]
+}
 
 function seedUsers(db, users) {
   const preppedUsers = users.map(user => {
@@ -55,9 +119,25 @@ function seedUsers(db, users) {
 function cleanTables(db) {
   return db.raw(
     `TRUNCATE
-      users CASCADE
+      users,
+      games,
+      squads,
+      user_squads
+      RESTART IDENTITY CASCADE
     `
   );
+}
+function seedGames(db, games){
+  return db('games').insert(games)
+    .then(() => {
+      db.raw('SELECT setval("games_id_seq", ?', [games[games.length-1].id]);
+    })
+}
+function seedSquads(db, squads){
+  return db('squads').insert(squads)
+  .then(
+    db.raw('SELECT setval("squads_id_seq", ?', [squads[squads.length-1].id])
+  )
 }
 
 function makeAuthHeader(user, secret = process.env.JWT_SECRET) {
@@ -75,9 +155,30 @@ function makeAuthHeader(user, secret = process.env.JWT_SECRET) {
   return `Bearer ${token}`;
 }
 
+function seedGamesAndUsers(db, users, games){
+  return db.transaction(async () =>{
+    await seedUsers(db, users);
+    await seedGames(db,games);
+  })
+}
+
+function seedGameSquadUsers(db, users, games, squads){
+  return db.transaction(async () => {
+    await seedUsers(db, users);
+    await seedGames(db, games);
+    await seedSquads(db, squads);
+  })
+}
+
 module.exports = {
   makeUsersArray,
   makeAuthHeader,
   seedUsers,
-  cleanTables
+  cleanTables,
+  makeGameArray,
+  seedGames,
+  seedGamesAndUsers,
+  makeSquadList,
+  seedSquads,
+  seedGameSquadUsers
 };
