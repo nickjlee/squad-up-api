@@ -16,4 +16,4 @@ ALTER TABLE games
         game_type game_category;
 ALTER TABLE squads
     ADD COLUMN
-        game_id INTEGER REFERENCES games(id);
+        game_id INTEGER REFERENCES games(id) NOT NULl;

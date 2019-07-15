@@ -6,5 +6,17 @@ CREATE TABLE chat(
     pinned VARCHAR(500),
     squad_id INTEGER REFERENCES squads(id) ON DELETE CASCADE DEFAULT 999
 );
-INSERT INTO chat (user_id, message_body, squad_id) VALUES
-(1, 'Welcome to Squad up', 999);
+
+CREATE FUNCTION expire_chat_deletion() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+
+BEGIN
+    DELETE FROM chat WHERE time_stamp < NOW() - INTERVAL '6 hours';
+    RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER expire_chat_deletion_trigger
+    BEFORE INSERT OR UPDATE ON chat EXECUTE 
+    PROCEDURE expire_chat_deletion();

@@ -1,12 +1,5 @@
 BEGIN;
 
-TRUNCATE
-    games,
-    user_squads
-    RESTART IDENTITY CASCADE;
-
-
-
 INSERT INTO games (game_title, game_type, image) VALUES 
 ( 'apex', 'Video Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
 ( 'overwatch', 'Video Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),

@@ -11,9 +11,9 @@ squadsRouter
   .use(requireAuth)
 
 squadsRouter
-  .get('/:id', async (req, res, next) => {
+  .get('/', async (req, res, next) => {
     try {
-      const user_id = req.params.id
+      const { user_id } = req.body
   
       const userSquads = await SquadsService.getUserSquads(
         req.app.get('db'),
