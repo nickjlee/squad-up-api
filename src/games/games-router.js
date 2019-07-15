@@ -9,7 +9,7 @@ gamesRouter
   .get(async (req, res, next) => {
     try {
       const games = await GamesService.getAllGames(req.app.get('db'))
-
+      
       return res.json(games)
 
     } catch (error) {
@@ -36,7 +36,26 @@ gamesRouter
         req.params.game_id
       )
 
-      return res.json(gameSquads)
+      
+      let count = 0;
+      
+      await gameSquads.forEach((squad, index) => {
+        GamesService.getTagsForSquads(
+          req.app.get('db'),
+          squad.id
+        )
+          .then(res => {
+            count++
+            gameSquads[index].tags = res
+            isComplete(count)
+          })
+      })
+      
+      const isComplete = (count) => {
+        if (count === gameSquads.length) {
+          return res.json(gameSquads)
+        }
+      }
 
     } catch (error) {
       next(error)
