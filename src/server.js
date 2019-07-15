@@ -7,17 +7,12 @@ const { PORT, DB_URL } = require('./config');
 const livechatService = require('./livechat/livechat-service')
 const xss = require('xss')
 
-
-
-
-
 const db = knex({
   client: 'pg',
   connection: DATABASE_URL,
 })
 
 app.set('db', db)
-
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`)
