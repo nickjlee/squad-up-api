@@ -48,6 +48,7 @@ const GamesService = {
     return db
       .from('squads_tags as st')
       .select(
+        't.id',
         't.tag'
       )
       .rightJoin(
