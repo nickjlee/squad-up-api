@@ -18,11 +18,10 @@ authRouter
         })
 
     try {
-      let dbUser = await AuthService.getUserWithUserName(
+      const dbUser = await AuthService.getUserWithUserName(
         req.app.get('db'),
         loginUser.username
       )
-      dbUser=dbUser[0]
 
 
       if (!dbUser)
@@ -45,9 +44,7 @@ authRouter
         user_id: dbUser.id,
         name: dbUser.name,
         avatar: dbUser.avatar,
-        xp: dbUser.xp,
-        level: dbUser.level_id,
-        xp_threshold: dbUser.xp_threshold
+        xp: dbUser.xp
       }
       res.send({
         authToken: AuthService.createJwt(sub, payload),
