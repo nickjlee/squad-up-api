@@ -9,5 +9,4 @@ CREATE TABLE user_squads(
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
     squad_id INTEGER REFERENCES squads(id) ON DELETE CASCADE NOT NULL
 );
-INSERT INTO squads (id, squad_name, squad_location, leader, capacity) VALUES
-(999, 'General Chat', 'USA', 1, 9999);
+
