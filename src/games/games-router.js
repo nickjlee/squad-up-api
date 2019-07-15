@@ -9,7 +9,7 @@ gamesRouter
   .get(async (req, res, next) => {
     try {
       const games = await GamesService.getAllGames(req.app.get('db'))
-      
+
       return res.json(games)
 
     } catch (error) {
