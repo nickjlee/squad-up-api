@@ -42,6 +42,21 @@ const GamesService = {
         'usr.id'
       )
       .groupBy('sqd.id', 'usr.id')
+  },
+
+  getTagsForSquads(db, squad_id) {
+    return db
+      .from('squads_tags as st')
+      .select(
+        't.id',
+        't.tag'
+      )
+      .rightJoin(
+        'tags AS t',
+        'st.tags_id',
+        't.id'
+      )
+      .where('st.squad_id', squad_id)
   }
 }
 
@@ -51,6 +66,8 @@ const userFields = [
   'usr.name AS name',
   'usr.avatar AS avatar'
 ]
+
+
 
 module.exports = GamesService
 
