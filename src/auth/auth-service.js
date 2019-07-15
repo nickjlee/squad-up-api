@@ -4,9 +4,23 @@ const config = require('../config')
 
 const AuthService = {
   getUserWithUserName(db, username) {
-    return db('users')
-      .where({ username })
-      .first()
+    return db('users AS u')
+      .select(
+        'u.id',
+        'u.username',
+        'u.name',
+        'u.avatar',
+        'u.xp',
+        'l.xp_threshold',
+        'u.level_id',
+        'u.password'
+      )
+      .where("u.username","=",username)
+      .leftJoin(
+        'level AS l',
+        'u.level_id',
+        'l.id'
+      )
   },
   comparePasswords(password, hash) {
     return bcrypt.compare(password, hash)

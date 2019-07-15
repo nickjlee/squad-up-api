@@ -9,3 +9,11 @@ CREATE TABLE user_squads(
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
     squad_id INTEGER REFERENCES squads(id) ON DELETE CASCADE NOT NULL
 );
+INSERT INTO users (username, password, name, avatar) VALUES (
+    'user1',
+    '$2a$12$zjujb7acz65IE0DOM1JJ6.iedBs1Opou6.9ADYHW.DwbfxQsw.niG',
+    'test user1',
+    'https://image.flaticon.com/icons/svg/78/78373.svg'
+);
+INSERT INTO squads (id, squad_name, squad_location, leader, capacity) VALUES
+(999, 'General Chat', 'USA', 1, 9999);
