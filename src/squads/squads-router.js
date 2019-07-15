@@ -13,11 +13,9 @@ squadsRouter
 squadsRouter
   .get('/', async (req, res, next) => {
     try {
-      const { user_id } = req.body
-  
       const userSquads = await SquadsService.getUserSquads(
         req.app.get('db'),
-        user_id
+        req.user.id
       ) 
 
       if (!userSquads) 

@@ -8,5 +8,4 @@ CREATE TABLE squads(
 CREATE TABLE user_squads(
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
     squad_id INTEGER REFERENCES squads(id) ON DELETE CASCADE NOT NULL
-);
-
+)
