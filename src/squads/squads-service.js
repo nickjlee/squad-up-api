@@ -43,10 +43,23 @@ const SquadsService = {
       .where('us.user_id', user_id)
   },
 
-  // create chat functionality will be done at chat endpoint
-  // createChat(db, chat_id, squad_id) {
-
-  // },
+  getSquadMembers(db, squad_id) {
+    return db
+      .from('user_squads AS us')
+      .select(
+        'us.user_id',
+        'us.squad_id',
+        'usr.username',
+        'usr.name',
+        'usr.avatar'
+      )
+      .leftJoin(
+        'users AS usr',
+        'us.user_id',
+        'usr.id'
+      )
+      .where('us.squad_id', squad_id)
+  },
 
   addSquad(db, squad) {
     return db 

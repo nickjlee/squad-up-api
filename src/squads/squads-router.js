@@ -19,11 +19,34 @@ squadsRouter
       ) 
 
       if (!userSquads) 
-        return res.status(200).json({
-          message: `No squads joined yet!`
+        return res.status(400).json({
+          error: `No squads joined yet!`
         })
 
       return res.json(userSquads)
+
+    } catch (error) {
+      next(error)
+    }
+  })
+
+squadsRouter
+  .get('/members', async (req, res, next) => {
+    try {
+      const {squad_id} = req.body
+      const squadId = squad_id
+
+      const squadMembers = await SquadsService.getSquadMembers(
+        req.app.get('db'),
+        squadId
+      )
+
+      if (!squadMembers) 
+        return res.status(400).json({
+          error: `Squad does not exist`
+        })
+
+      return res.json(squadMembers)
 
     } catch (error) {
       next(error)
