@@ -4,5 +4,5 @@ CREATE TABLE users(
     password TEXT NOT NULL,
     xp NUMERIC DEFAULT 0,
     name TEXT NOT NULL,
-    avatar TEXT DEFAULT 'https://image.flaticon.com/icons/svg/78/78373.svg'
+    avatar TEXT DEFAULT 'https://res.cloudinary.com/squad-up/image/upload/v1563210869/avatars/avatar1_n22av6.png'
 );
