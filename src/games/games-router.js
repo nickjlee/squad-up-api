@@ -35,7 +35,10 @@ gamesRouter
         req.app.get('db'),
         req.params.game_id
       )
-
+      
+      if(gameSquads.length === 0) {
+        return res.json(gameSquads)
+      }
       
       let count = 0;
       
@@ -56,7 +59,7 @@ gamesRouter
           return res.json(gameSquads)
         }
       }
-
+      
     } catch (error) {
       next(error)
     }

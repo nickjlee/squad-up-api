@@ -42,6 +42,26 @@ const UserService = {
       username: xss(user.username),
     }
   },
+
+  getUserInfo(db, user_id) {
+    return db 
+      .from('users AS u')
+      .select(
+        'u.username',
+        'u.name',
+        'u.avatar',
+        'u.xp',
+        'l.level',
+        'l.xp_threshold'
+      )
+      .leftJoin(
+        'level as l',
+        'u.level_id',
+        'l.id'
+      )
+      .where('u.id', user_id)
+      .first()
+  }
 }
 
 module.exports = UserService
