@@ -4,14 +4,7 @@ const SquadsService = {
   getSquadById(db, squad_id) {
     return db
       .from('squads AS sqd')
-      .select(
-        'sqd.id',
-        'sqd.squad_name',
-        'sqd.squad_location',
-        'sqd.leader',
-        'sqd.game_id',
-        'sqd.chat_id'
-      )
+      .select('*')
       .where('sqd.id', squad_id)
       .first()
   },
@@ -101,12 +94,13 @@ const SquadsService = {
   },
 
   serializeSquad(squad) {
+    console.log(squad)
     return {
       id: squad.id,
       squad_name: xss(squad.squad_name),
       squad_location: xss(squad.squad_location),
       leader: squad.leader,
-      game_id:squad.game_id,
+      game_id: squad.game_id,
     }
   },
 

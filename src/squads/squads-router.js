@@ -126,7 +126,7 @@ squadsRouter
 
       await SquadsService.joinSquad(
         req.app.get('db'),
-        squad.leader,
+        req.user.id,
         squad.id
       )
 
@@ -136,9 +136,14 @@ squadsRouter
         400
       )
 
+      const response = {
+        ...SquadsService.serializeSquad(squad),
+        tags
+      }
+
       return res
         .status(201)
-        .json(SquadsService.serializeSquad(squad))
+        .json(response)
       
     } catch (error) {
       next(error)
