@@ -1,5 +1,8 @@
 # Squad Up (logo)
 
+[SquadUp Live](https://squadup.now.sh "Live Site")
+[SquadUp Repo](https://github.com/cgillette12/Squad-up-Client "Front End Repo")
+
 Created by gamers to bring all your gaming communities under one roof. Find new squads to enjoy your favorite activities from competitive FPS and MMO's to classic table-top RPGs, card games and even sports. No more bouncing from app to app to find like-minded gamers. 
 
 ## V1 Feature List
