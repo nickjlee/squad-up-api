@@ -8,36 +8,83 @@ TRUNCATE
     RESTART IDENTITY CASCADE;
 
 INSERT INTO users (username, password, name, avatar) VALUES (
-    'user1',
+    'demo',
     --password: pass1
     '$2a$12$zjujb7acz65IE0DOM1JJ6.iedBs1Opou6.9ADYHW.DwbfxQsw.niG',
-    'test user1',
-    'https://image.flaticon.com/icons/svg/78/78373.svg'
+    'Demo User',
+    'https://res.cloudinary.com/squad-up/image/upload/v1563210869/avatars/avatar1_n22av6.png'
 );
 
 INSERT INTO games (game_title, game_type, image) VALUES 
-( 'apex', 'Video Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'overwatch', 'Video Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'destiny2', 'Video Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'rain bow six', 'Video Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'world of warcraft', 'Video Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'super smash bros', 'Video Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'tennis', 'Recreation', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'monopoly', 'Board Games','https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'life', 'Board Games','https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'catan', 'Board Games','https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'clue', 'Board Games','https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'uno', 'Card Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'poker', 'Card Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'texas holdem', 'Card Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'cards against humanity', 'Card Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'exploding kittens', 'Card Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'basketball', 'Recreation', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'hiking', 'Recreation', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'badminton', 'Recreation', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'baseball', 'Recreation', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'football', 'Recreation', 'https://image.flaticon.com/icons/svg/78/78373.svg' ),
-( 'the awkward storyteller', 'Card Games', 'https://image.flaticon.com/icons/svg/78/78373.svg' );
+-- Video Games
+( 'Apex Legends', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217196/apex_fqxwyf.png' ),
+( 'Overwatch', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217204/overwatch_rrif0t.png' ),
+( 'Destiny 2', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217202/destiny2_y6vuvm.png' ),
+( 'Rainbow Six: Siege', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217197/rainbowsixsiege_lxwcje.jpg' ),
+( 'World of Warcraft', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563225372/worldofwarcraft_ppiukk.png' ),
+( 'Super Smash Bros Ultimate', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563225462/supersmashbrosultimate_rmveks.png' ),
+( 'Fortnite', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217201/fortnite_muuila.jpg' ),
+( 'The Division 2', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217201/division2_difwmw.jpg' ),
+( 'Mordhau', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217203/mordhau_xmfizx.jpg' ),
+( 'CoD: Black Ops 4', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217197/blackops4_x7qmqx.jpg' ),
+( 'Sea of Thieves', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217198/seaofthieves_pxayfw.jpg' ),
+( 'GTA V', 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217203/gtav_nqxmit.jpg' ),
+( 'Player Unknown''s Battleground' , 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217197/pubg_bnvh7y.jpg' ),
+( 'Rocket League' , 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217197/rocketleague_jukgfo.jpg' ),
+( 'Red Dead Online' , 'Video Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217197/reddead2_vdacut.jpg' ),
+-- Board Games
+( 'Monopoly', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563226341/monopoly_ilp7ck.jpg' ),
+( 'The Game of Life', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217203/life_m7lkeb.jpg' ),
+( 'Chess', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217198/chess_s2imnu.jpg' ),
+( 'Checkers', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217198/checkers_bt8q79.jpg' ),
+( 'Scrabble', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217198/scrabble_idv00c.jpg' ),
+( 'Clue', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217199/clue_cohthu.jpg' ),
+( 'Apples to Apples', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217196/applestoapples_rop9m4.jpg' ),
+( 'Settlers of Catan', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217199/catan_kxtybb.jpg' ),
+( 'Sorry', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/sorry_uwg7ee.jpg' ),
+( 'Yahtzee', 'Board Games','https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/yahtzee_mov99q.jpg' ),
+-- Card Games
+( 'Uno', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239975/uno_rahvvi.jpg' ),
+( 'Cards Against Humanity', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563242550/cardsagainsthumanity_vvd2ng.png' ),
+( 'Exploding Kittens', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563242553/explodingkittens_sjvmo4.png' ),
+( 'The Awkward Storyteller', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563242760/awkwardstoryteller_culepg.jpg' ),
+( 'Poker', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/poker_jclqsb.jpg' ),
+( 'Texas Hold''em', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/texas_woq11x.jpg' ),
+( 'Black Jack', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/blackjack_pmr7lo.jpg' ),
+( 'Bridge', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/bridge_chtmla.jpg' ),
+( 'Go Fish', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/genericplayingcards_zfrbzl.png' ),
+( 'Slap Jack', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/genericplayingcards_zfrbzl.png' ),
+( 'Crazy 8''s', 'Card Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/crazy8s_vkotbg.jpg' ),
+-- Table Top Games
+( 'Dungeons & Dragons', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/d_d_fgnccy.jpg' ),
+( 'Shadowrun', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217199/shadowrun_zxijjm.jpg' ),
+( 'Call of Cthulhu', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/cthulhu_uzot0v.jpg' ),
+( 'Vampier: The Masquerade', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/vampirethemasquerade_rnbayf.jpg' ),
+( 'Star Wars The RPG', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/starwars_ezhuqe.jpg' ),
+( 'Pathfinder', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217196/pathfinder_lenr4s.jpg' ),
+( 'GURPS', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217203/gurps_wqfnnc.jpg' ),
+( 'Werewolf: The Apocalypse', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217201/werewolftheapocalypse_vsodal.jpg' ),
+( 'Mage: The Ascension', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217203/mage_i6kqqs.jpg' ),
+( 'Savage Worlds', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217198/savageworlds_bbr1lc.jpg' ),
+( 'Paranoia', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/paranoia_mrjmrt.jpg' ),
+( 'Cyberpunk 2020', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/cyberpunk_tzfbid.jpg' ),
+( 'Deadlands', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217201/deadlands_mpohgz.jpg' ),
+( 'World of Darkness', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217201/worldofdarkness_sav1ip.jpg' ),
+( 'Traveller', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217200/traveller_vaqoob.jpg' ),
+-- Recreation
+( 'Basketball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/basketball_yvutos.png' ),
+( 'Football', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/football_veqxns.png' ),
+( 'Baseball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/baseball_yjig02.png' ),
+( 'Softball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/baseball_yjig02.png' ),
+( 'Soccer', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/soccer_p2b61z.png' ),
+( 'Tennis', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/tennis_jctepd.png' ),
+( 'Cycling', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/cycling_mk2tof.png' ),
+( 'Rugby', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/rugby_iko5u3.png' ),
+( 'Hockey', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/hockey_sj1xrf.png' ),
+( 'Table Tennis', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/tabletennis_fvkasf.png' ),
+( 'Bowling', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/bowling_dufocz.png' ),
+( 'Badminton', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/badminton_zrdsy9.png' ),
+( 'Marathon Training', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/running_eqfu7n.png' );
 
 INSERT INTO squads (squad_name, squad_location, game_id, leader, capacity) VALUES 
 ( 'squad1', 'somewhere on earth', '1', '1', '4' ),
@@ -51,9 +98,16 @@ INSERT INTO squads (squad_name, squad_location, game_id, leader, capacity) VALUE
 ( 'squad9', 'somewhere on earth', '1', '1', '4' ),
 ( 'squad10', 'Los Angeles, CA', '1', '1', '5' );
 
-INSERT INTO user_squads (user_id, squad_id) VALUES (
-    '1',
-    '1'
-);
+INSERT INTO user_squads (user_id, squad_id) VALUES 
+( '1', '1' ),
+( '1', '2' ),
+( '1', '3' ),
+( '1', '4' ),
+( '1', '5' ),
+( '1', '6' ),
+( '1', '7' ),
+( '1', '8' ),
+( '1', '9' ),
+( '1', '10' );
 
 COMMIT;
