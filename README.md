@@ -22,8 +22,8 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 
 
 ## Created By
-* [Adam] (https://github.com/AdamPavlicek)
-* [Cody] (https://github.com/cgillette12)
-* [Cristian] (https://github.com/therealcriscam)
-* [Harrison] (https://github.com/hhcgit)
-* [Nick] (https://github.com/nickjlee)
+* [Adam](https://github.com/AdamPavlicek "Adam's Github")
+* [Cody](https://github.com/cgillette12 "Cody's Github")
+* [Cristian](https://github.com/therealcriscam "Cristian's Github")
+* [Harrison](https://github.com/hhcgit "Harrison's Github")
+* [Nick](https://github.com/nickjlee "Nick's Github")
