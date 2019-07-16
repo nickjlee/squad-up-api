@@ -107,7 +107,6 @@ const SquadsService = {
   },
 
   serializeSquad(squad) {
-    console.log(squad)
     return {
       id: squad.id,
       squad_name: xss(squad.squad_name),
