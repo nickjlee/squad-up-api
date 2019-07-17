@@ -25,7 +25,6 @@ io.on('connection', (socket)=>{
 
   socket.on("message", async function(data) {
       const { squad_id, message_body, username } = data
-      console.log(squad_id)
       const user_id = await livechatService.findUserId(app.get('db'), username)
       
       const newChat = {

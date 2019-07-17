@@ -25,15 +25,15 @@ livechatRouter
                 squad_id
             ).then(chats => {
                 if(chats.length===0){
-                    const time = new Date()
+                    let time = new Date()
                     time = time.toISOString()
-                    const welcome = {
+                    const welcome = [{
                         message_body:`Welcome to Channel ${squad_id}`,
                         username:"Admin",
                         time_stamp:time,
                         squad_name,
                         id:999999
-                    }
+                    }]
                     return res.json(welcome)
                 }
                 
