@@ -30,7 +30,7 @@ userRouter
 
 userRouter
   .post('/', jsonParser, async (req, res, next) => {
-    const {name, username, password} = req.body
+    const {name, username, password, avatar} = req.body
 
     for (const field of ['name', 'username', 'password'])
       if (!req.body[field])
@@ -57,7 +57,8 @@ userRouter
       const newUser = {
         name,
         username,
-        password: hashedPassword
+        password: hashedPassword,
+        avatar
       }
 
       const user = await UserService.insertUser(
