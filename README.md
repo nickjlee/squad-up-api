@@ -26,12 +26,12 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 /api
 
 
-├── /auth ..
-│   └── POST ..
-│   |   └── /token ..
-│   └── PUT ..
-│       └── /token ..
-| .. 
+├── /auth return
+│   └── POST return 
+│   |   └── /token return
+│   └── PUT
+│       └── /token
+|
 ├── /user
 │   └── GET /
 │   |   └── /:id
