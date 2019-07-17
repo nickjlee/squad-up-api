@@ -25,10 +25,10 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 
 /api
 
-
-├── /auth  return
-│   └── POST  return
-│   |   └── /token  return
+```
+├── /auth
+│   └── POST
+│   |   └── /token
 │   └── PUT
 │       └── /token
 |
@@ -55,6 +55,7 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 ├── /chat
 │   └── GET
 │       └── /:id
+```
 
 ## Created By
 * [Adam](https://github.com/AdamPavlicek "Adam's Github")
