@@ -72,19 +72,19 @@ INSERT INTO games (game_title, game_type, image) VALUES
 ( 'World of Darkness', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217201/worldofdarkness_sav1ip.jpg' ),
 ( 'Traveller', 'Table Top Games', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563217200/traveller_vaqoob.jpg' ),
 -- Recreation
-( 'Basketball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/basketball_yvutos.png' ),
-( 'Football', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/football_veqxns.png' ),
-( 'Baseball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/baseball_yjig02.png' ),
-( 'Softball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/baseball_yjig02.png' ),
-( 'Soccer', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/soccer_p2b61z.png' ),
-( 'Tennis', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/tennis_jctepd.png' ),
-( 'Cycling', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/cycling_mk2tof.png' ),
-( 'Rugby', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/rugby_iko5u3.png' ),
-( 'Hockey', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/hockey_sj1xrf.png' ),
-( 'Table Tennis', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239453/tabletennis_fvkasf.png' ),
-( 'Bowling', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/bowling_dufocz.png' ),
-( 'Badminton', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/badminton_zrdsy9.png' ),
-( 'Marathon Training', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563239452/running_eqfu7n.png' );
+( 'Basketball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345660/basketball2_pmarwx.png' ),
+( 'Football', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345554/football_euthwa.svg' ),
+( 'Baseball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345553/baseball_huf75q.svg' ),
+( 'Soccer', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345555/soccer_nye41t.svg' ),
+( 'Softball', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345553/baseball_huf75q.svg' ),
+( 'Tennis', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345555/tennis_nvt1sy.svg' ),
+( 'Rugby', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/v1563345553/rugby2_m1akmh.svg' ),
+( 'Cycling', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345553/cycling_cvdimv.svg' ),
+( 'Hockey', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345554/hockey2_ai3ygz.png' ),
+( 'Table Tennis', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345555/tabletennis_xgxhly.svg' ),
+( 'Bowling', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345554/bowling2_fcge6a.png' ),
+( 'Badminton', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563345554/badminton2_hibq91.png' ),
+( 'Marathon Training', 'Recreation', 'https://res.cloudinary.com/squad-up/image/upload/c_scale,w_200/v1563346338/running2_s6k3pg.png' );
 
 INSERT INTO squads (squad_name, squad_location, game_id, leader, capacity) VALUES 
 ( 'squad1', 'somewhere on earth', '1', '1', '4' ),
@@ -109,5 +109,8 @@ INSERT INTO user_squads (user_id, squad_id) VALUES
 ( '1', '8' ),
 ( '1', '9' ),
 ( '1', '10' );
+
+INSERT INTO squads (id, squad_name, squad_location, leader, capacity) VALUES
+(999, 'General Chat', 'nowhere', 1, 1000);
 
 COMMIT;
