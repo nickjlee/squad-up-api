@@ -21,9 +21,39 @@ Created by gamers to bring all your gaming communities under one roof. Find new 
 ## Tech Stack
 Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT. 
 
-## API Structure
+## API 
 
+/api
 
+├── /auth
+│   └── POST
+│   |   └── /token
+│   └── PUT
+│       └── /token
+|
+├── /user
+│   └── GET /
+│   |   └── /:id
+│   └── POST
+│       └── /:id
+|
+├── /games
+│   └── GET
+│       ├── /
+│       ├── /:id
+│       └── /:id/squads
+|
+├── /squads
+│   └── GET
+│   |   ├── /
+│   |   └── /members
+│   └── POST
+│       ├── /join
+│       └── /add
+|
+├── /chat
+│   └── GET
+│       └── /:id
 
 ## Created By
 * [Adam](https://github.com/AdamPavlicek "Adam's Github")
