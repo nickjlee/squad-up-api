@@ -25,6 +25,7 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 
 /api
 
+.
 ├── /auth
 │   └── POST
 │   |   └── /token
