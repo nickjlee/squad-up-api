@@ -127,15 +127,19 @@ squadsRouter
         newSquad
       )
 
+      const resTags = []
+
       await tags.forEach(tag => {
         const newTag = {
           tag
         }
+
         SquadsService.insertTags(
           req.app.get('db'),
           newTag
         )
           .then(insertedTag => {
+            resTags.push(insertedTag)
             return SquadsService.addTagsToSquad(
               req.app.get('db'),
               squad.id,
@@ -156,9 +160,19 @@ squadsRouter
         400
       )
 
+      const serializedSquadInfo = SquadsService.serializeSquad(squad)
+
       const response = {
-        ...SquadsService.serializeSquad(squad),
-        tags
+        user_id: req.user.id,
+        squad_id: serializedSquadInfo.id,
+        username: req.user.username,
+        name: req.user.name,
+        userAvatar: req.user.avatar,
+        game_id,
+        leader: serializedSquadInfo.leader,
+        squad_location: serializedSquadInfo.squad_location,
+        squad_name: serializedSquadInfo.squad_name,
+        tags: resTags
       }
 
       return res
