@@ -22,10 +22,9 @@ Created by gamers to bring all your gaming communities under one roof. Find new 
 Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT. 
 
 ## API 
-
+```
 /api
 
-```
 ├── /auth
 │   └── POST
 │   |   └── /token
@@ -51,7 +50,6 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 │   └── POST
 │       ├── /join
 │       └── /add
-|
 ├── /chat
 │   └── GET
 │       └── /:id
