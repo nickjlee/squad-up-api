@@ -26,9 +26,9 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 /api
 
 
-├── /auth return
-│   └── POST return 
-│   |   └── /token return
+├── /auth  return
+│   └── POST  return
+│   |   └── /token  return
 │   └── PUT
 │       └── /token
 |
