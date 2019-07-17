@@ -41,7 +41,7 @@ livechatRouter
             })
             
         }
-        catch (err) {
+        catch (error) {
             next(error)
         }
     })

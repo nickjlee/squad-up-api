@@ -3,7 +3,7 @@ require('dotenv').config()
 const knex = require('knex')
 const app = require('./app');
 const { PORT, DATABASE_URL } = require('./config');
-const { PORT, DB_URL } = require('./config');
+// const { PORT, DB_URL } = require('./config');
 const livechatService = require('./livechat/livechat-service')
 const xss = require('xss')
 
