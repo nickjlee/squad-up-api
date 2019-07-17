@@ -25,13 +25,13 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 
 /api
 
-.
-├── /auth
-│   └── POST
-│   |   └── /token
-│   └── PUT
-│       └── /token
-|
+
+├── /auth ..
+│   └── POST ..
+│   |   └── /token ..
+│   └── PUT ..
+│       └── /token ..
+| .. 
 ├── /user
 │   └── GET /
 │   |   └── /:id
