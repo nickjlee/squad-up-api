@@ -31,13 +31,22 @@ gamesRouter
   .all(checkGameExists)
   .get(async (req, res, next) => {
     try {
-      const gameSquads = await GamesService.getSquadsForGame(
+      const gameSquadsRaw = await GamesService.getSquadsForGame(
         req.app.get('db'),
         req.params.game_id
       )
+
+      let gameSquads = []
       
-      if(gameSquads.length === 0) {
+      if(gameSquadsRaw.length === 0) {
         return res.json(gameSquads)
+      } else {
+        gameSquads = gameSquadsRaw.map(squad => {
+          return {
+            ...squad,
+            squad_id: squad.id
+          }
+        })
       }
       
       let count = 0;
@@ -53,7 +62,7 @@ gamesRouter
             isComplete(count)
           })
       })
-      
+
       const isComplete = (count) => {
         if (count === gameSquads.length) {
           return res.json(gameSquads)
