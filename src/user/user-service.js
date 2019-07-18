@@ -47,6 +47,7 @@ const UserService = {
     return db 
       .from('users AS u')
       .select(
+        'u.id',
         'u.username',
         'u.name',
         'u.avatar',
