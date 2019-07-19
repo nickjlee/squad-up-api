@@ -5,7 +5,7 @@ const helpers = require('./test-helpers')
 const knex = require('knex')
 const app = require('../src/app')
 
-describe.only('Squad Endpoints', () => {
+describe('Squad Endpoints', () => {
   let db
 
   const testUsers = helpers.makeUsersArray()
