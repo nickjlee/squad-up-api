@@ -1,4 +1,5 @@
-# Squad Up (logo)
+# Squad Up 
+Brought to you by Team Excelsior
 
 [SquadUp Live](https://squadup.now.sh "Live Site")
 
@@ -56,8 +57,8 @@ Created with Node.js, Express, PostgreSQL, Knex.js, Socket.io and JWT.
 ```
 
 ## Created By
-* [Adam](https://github.com/AdamPavlicek "Adam's Github")
-* [Cody](https://github.com/cgillette12 "Cody's Github")
-* [Cristian](https://github.com/therealcriscam "Cristian's Github")
-* [Harrison](https://github.com/hhcgit "Harrison's Github")
-* [Nick](https://github.com/nickjlee "Nick's Github")
+* [Adam Pavlicek](https://github.com/AdamPavlicek "Adam's Github")
+* [Cody Gillette](https://github.com/cgillette12 "Cody's Github")
+* [Cristian Camarero](https://github.com/therealcriscam "Cristian's Github")
+* [Harrison Chen](https://github.com/hhcgit "Harrison's Github")
+* [Nick Lee](https://github.com/nickjlee "Nick's Github")
