@@ -39,7 +39,7 @@ function makeUsersArray() {
   ]
 }
 
-function makeGameArray() {
+function makeGamesArray() {
   return [
     {
       game_title: 'testgame1',
@@ -203,7 +203,7 @@ module.exports = {
   makeAuthHeader,
   seedUsers,
   cleanTables,
-  makeGameArray,
+  makeGamesArray,
   seedGames,
   seedGamesUsers,
   makeSquadList,
