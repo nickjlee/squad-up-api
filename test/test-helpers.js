@@ -111,9 +111,9 @@ function seedUsers(db, users) {
   })
   return db('users')
     .insert(preppedUsers)
-    .then(() => {
-      db.raw('SELECT setval("users_id_seq", ?)', [users[users.length - 1].id])
-    })
+    .then(() =>
+      db.raw(`SELECT setval('users_id_seq', ?)`, [users[users.length - 1].id])
+    )
 }
 
 function cleanTables(db) {
@@ -131,16 +131,16 @@ function cleanTables(db) {
 function seedGames(db, games) {
   return db('games')
     .insert(games)
-    .then(() => {
-      db.raw('SELECT setval("games_id_seq", ?', [games[games.length - 1].id])
-    })
+    .then(() =>
+      db.raw(`SELECT setval('games_id_seq', ?)`, [games[games.length - 1].id])
+    )
 }
 
 function seedSquads(db, squads) {
   return db('squads')
     .insert(squads)
-    .then(
-      db.raw('SELECT setval("squads_id_seq", ?', [squads[squads.length - 1].id])
+    .then(() =>
+      db.raw(`SELECT setval('squads_id_seq', ?)`, [squads[squads.length - 1].id])
     )
 }
 
