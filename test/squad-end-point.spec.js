@@ -19,7 +19,7 @@ describe('Squad Endpoints', () => {
   
   const testUsers = helpers.makeUsersArray()
   const testGames = helpers.makeGamesArray()
-  const testSquads = helpers.makeSquadList()
+  const testSquads = helpers.makeSquadsArray()
   const testUser = testUsers[0]
 
   after('disconnect from db', () => db.destroy())
@@ -45,7 +45,19 @@ describe('Squad Endpoints', () => {
         helpers.seedGamesUsersSquads(db, testGames, testUsers, testSquads)
       )
 
-      const expected = helpers.makeExpectedSquadsList(testUser, testSquads)
+      const expected = testSquads.map(squad => {
+        return {
+          game_id: squad.game_id,
+          leader: squad.leader,
+          name: testUser.name,
+          squad_id: squad.id,
+          squad_location: squad.squad_location,
+          squad_name: squad.squad_name,
+          userAvatar: testUser.avatar,
+          user_id: testUser.id,
+          username: testUser.username
+        }
+      })
 
       it('responds with squad list', () => {
         return supertest(app)

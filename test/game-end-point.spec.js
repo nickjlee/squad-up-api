@@ -19,7 +19,7 @@ describe('Game Endpoints', () => {
 
   const testGames = helpers.makeGamesArray()
   const testUsers = helpers.makeUsersArray()
-  const testSquads = helpers.makeSquadList()
+  const testSquads = helpers.makeSquadsArray()
   const testUser = testUsers[0]
 
   after('disconnect from db', () => db.destroy())
