@@ -10,7 +10,8 @@
     "predeploy": "npm audit && npm run migrate-production",
     "deploy": "git push heroku master",
     "migrate": "postgrator --config postgrator-config.js",
-    "migrate-production": "postgrator --config postgrator-production-config.js"
+    "migrate-production": "postgrator --config postgrator-production-config.js",
+    "migrate-test": "postgrator --config postgrator-test-config.js"
   },
   "eslintConfig": {
     "parserOptions": {
