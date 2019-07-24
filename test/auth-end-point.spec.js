@@ -25,7 +25,7 @@ describe('Auth Endpoints', () => {
   before('cleanup', () => helpers.cleanTables(db))
   afterEach('cleanup', () => helpers.cleanTables(db))
 
-  describe.only('POST /api/auth/token', () => {
+  describe('POST /api/auth/token', () => {
     beforeEach('seed users', () => helpers.seedUsers(db, testUsers))
     
     context('Request body validation', () => {
