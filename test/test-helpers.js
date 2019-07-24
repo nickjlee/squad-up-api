@@ -109,6 +109,7 @@ function seedUsers(db, users) {
   const preppedUsers = users.map(user => {
     return { ...user, password: bcrypt.hashSync(user.password, 1) }
   })
+  
   return db('users')
     .insert(preppedUsers)
     .then(() =>
