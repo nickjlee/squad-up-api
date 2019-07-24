@@ -4,7 +4,7 @@ const knex = require('knex')
 const app = require('../src/app')
 const config = require('../src/config')
 
-describe.only('User Endpoints', () => {
+describe('User Endpoints', () => {
   let db
 
   before('connect to db', () => {
