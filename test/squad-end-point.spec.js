@@ -8,18 +8,19 @@ const app = require('../src/app')
 describe('Squad Endpoints', () => {
   let db
 
-  const testUsers = helpers.makeUsersArray()
-  const testGames = helpers.makeGameArray()
-  const testSquads = helpers.makeSquadList()
-  const testUser = testUsers[0]
-
   before('connect to db', () => {
     db = knex({
       client: 'pg',
       connection: process.env.TEST_DB_URL
     })
+
     app.set('db', db)
   })
+  
+  const testUsers = helpers.makeUsersArray()
+  const testGames = helpers.makeGamesArray()
+  const testSquads = helpers.makeSquadsArray()
+  const testUser = testUsers[0]
 
   after('disconnect from db', () => db.destroy())
   before('cleanup', () => helpers.cleanTables(db))
@@ -44,7 +45,19 @@ describe('Squad Endpoints', () => {
         helpers.seedGamesUsersSquads(db, testGames, testUsers, testSquads)
       )
 
-      const expected = helpers.makeExpectedSquadsList(testUser, testSquads)
+      const expected = testSquads.map(squad => {
+        return {
+          game_id: squad.game_id,
+          leader: squad.leader,
+          name: testUser.name,
+          squad_id: squad.id,
+          squad_location: squad.squad_location,
+          squad_name: squad.squad_name,
+          userAvatar: testUser.avatar,
+          user_id: testUser.id,
+          username: testUser.username
+        }
+      })
 
       it('responds with squad list', () => {
         return supertest(app)
@@ -147,7 +160,7 @@ describe('Squad Endpoints', () => {
       beforeEach('seed games, users, and squads', () =>
         helpers.seedGamesUsersSquads(db, testGames, testUsers, testSquads)
       )
-      
+
       it('responds with 201 and new squad info', () => {
         const squadToAdd = {
           game_id: 1,

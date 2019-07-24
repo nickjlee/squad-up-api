@@ -39,7 +39,7 @@ function makeUsersArray() {
   ]
 }
 
-function makeGameArray() {
+function makeGamesArray() {
   return [
     {
       game_title: 'testgame1',
@@ -68,7 +68,7 @@ function makeGameArray() {
   ]
 }
 
-function makeSquadList() {
+function makeSquadsArray() {
   return [
     {
       id: 1,
@@ -105,15 +105,33 @@ function makeSquadList() {
   ]
 }
 
-function seedUsers(db, users) {
-  const preppedUsers = users.map(user => {
-    return { ...user, password: bcrypt.hashSync(user.password, 1) }
-  })
-  return db('users')
-    .insert(preppedUsers)
-    .then(() =>
-      db.raw(`SELECT setval('users_id_seq', ?)`, [users[users.length - 1].id])
-    )
+function makeChatsArray() {
+  return [
+    {
+      id: 1,
+      message_body: 'hello',
+      user_id: 1,
+      squad_id: 1
+    },
+    {
+      id: 2, 
+      message_body: 'how are you?',
+      user_id: 2,
+      squad_id: 1
+    },
+    {
+      id: 3,
+      message_body: 'testing chat',
+      user_id: 3,
+      squad_id: 1
+    },
+    {
+      id: 4,
+      message_body: 'goodbye!',
+      user_id: 4,
+      squad_id: 1
+    }
+  ]
 }
 
 function cleanTables(db) {
@@ -128,6 +146,18 @@ function cleanTables(db) {
   )
 }
 
+function seedUsers(db, users) {
+  const preppedUsers = users.map(user => {
+    return { ...user, password: bcrypt.hashSync(user.password, 1) }
+  })
+
+  return db('users')
+    .insert(preppedUsers)
+    .then(() =>
+      db.raw(`SELECT setval('users_id_seq', ?)`, [users[users.length - 1].id])
+    )
+}
+
 function seedGames(db, games) {
   return db('games')
     .insert(games)
@@ -140,17 +170,10 @@ function seedSquads(db, squads) {
   return db('squads')
     .insert(squads)
     .then(() =>
-      db.raw(`SELECT setval('squads_id_seq', ?)`, [squads[squads.length - 1].id])
+      db.raw(`SELECT setval('squads_id_seq', ?)`, [
+        squads[squads.length - 1].id
+      ])
     )
-}
-
-function makeAuthHeader(user, secret = process.env.JWT_SECRET) {
-  const token = jwt.sign({ user_id: user.id }, secret, {
-    subject: user.username,
-    algorithm: 'HS256'
-  })
-
-  return `Bearer ${token}`
 }
 
 function seedGamesUsers(db, games, users) {
@@ -177,37 +200,38 @@ function seedUserSquads(db, user, squads) {
     }
   })
 
-  return db('user_squads')
-    .insert(userSquads)
+  return db('user_squads').insert(userSquads)
 }
 
-function makeExpectedSquadsList(user, squads) {
-  return squads.map(squad => {
-    return  {
-      game_id: squad.game_id,
-      leader: squad.leader,
-      name: user.name,
-      squad_id: squad.id,
-      squad_location: squad.squad_location,
-      squad_name: squad.squad_name,
-      userAvatar: user.avatar,
-      user_id: user.id,
-      username: user.username
-    }
+function seedChats(db, chats) {
+  return db('chat')
+    .insert(chats)
+    .then(() =>
+      db.raw(`SELECT setval('chat_id_seq', ?)`, [chats[chats.length - 1].id])
+    )
+}
+
+function makeAuthHeader(user, secret = process.env.JWT_SECRET) {
+  const token = jwt.sign({ user_id: user.id }, secret, {
+    subject: user.username,
+    algorithm: 'HS256'
   })
+
+  return `Bearer ${token}`
 }
 
 module.exports = {
   makeUsersArray,
-  makeAuthHeader,
-  seedUsers,
+  makeGamesArray,
+  makeSquadsArray,
+  makeChatsArray,
   cleanTables,
-  makeGameArray,
+  seedUsers,
   seedGames,
-  seedGamesUsers,
-  makeSquadList,
   seedSquads,
+  seedGamesUsers,
   seedGamesUsersSquads,
   seedUserSquads,
-  makeExpectedSquadsList
+  seedChats,
+  makeAuthHeader,
 }
